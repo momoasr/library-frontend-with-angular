@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <div style="width: 100%;" class="d-flex justify-content-between">
+      <a class="navbar-brand" href="#">Wathever Library</a>
+      <div style="width: 50%;">
+        <form class="w-100 me-3">
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">All</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Graphic Novels</a></li>
+              <li><a class="dropdown-item" href="#">Drama</a></li>
+              <li><a class="dropdown-item" href="#">Mysteries</a></li>
+            </ul>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </form>
+      </div>
+      <div *ngIf="!tokenData || !tokenData.isValidToken">
+        <button (click)="login()" type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button (click)="signup()" type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+      <div *ngIf="tokenData?.isValidToken">
+        <span class="me-3">
+          Welcome <b class="text-uppercase">{{ tokenData?.userData?.userName }}</b>
+        </span>        
+        <button (click)="logout()" type="button" class="btn btn-outline-primary me-2">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

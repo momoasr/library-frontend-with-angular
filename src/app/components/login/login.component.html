@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12 text-danger">
+            <h4>{{ errorMessage }}</h4>
+        </div>
+    </div>
+    <form [formGroup]="loginForm" autocomplete="off">
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">
+                User Name: <span class="text-danger">*</span>
+            </label>
+            <input formControlName="userName" autocomplete="off" type="text" class="form-control" id="inputEmail">
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">
+                Password: <span class="text-danger">*</span>
+            </label>
+            <input formControlName="password" type="password" class="form-control" id="inputPassword">
+        </div>
+        <button (click)="close()" type="button" class="btn btn-outline-secondary">Cancel</button>
+        <button (click)="login()" type="submit" class="btn btn-primary ms-3">Login</button>
+    </form>
+</div>
